@@ -1,0 +1,91 @@
+.productPageHeader{
+    padding: 150px;
+    margin-top: 2%;
+    background-color: rgb(51, 127, 159);
+  }
+  
+  
+  .productHead h2{
+    margin-top: -10%;
+    font-size: 43px;
+    margin-left: 5%;
+    font-weight: 300;
+    color: rgb(246, 246, 246);
+  }
+/**user note**/
+.pd-list{
+    margin-top: 10%;
+    padding: 5px 485px;
+    border-top: 1px solid #000;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+.noteUser{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .noteUser h4{
+    color: rgb(179, 24, 24);
+  }
+  .noteUser p{
+    color: #000;
+    font-size: 18px;
+  }
+  .noteUser p span{
+    font-weight: 500;
+  }
+
+
+/**product cards**/
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+  }
+  .card .imgcontainer img{
+    width: 100%;
+    height: 250px;
+    border: 1px dashed black;
+    overflow: hidden;
+    position: relative;
+  }
+  .container .card{
+    width: 250px;
+    padding: 15px;
+    margin-top: 5%;
+  }
+  .infoBox .title{
+    font-weight: 500;
+    color: black;
+  }
+  .infoBox .price{
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: line-through;
+  }
+  .infoBox .offer{
+    font-size: 19px;
+    font-weight: 400;
+  }
+  .infoBox .buttonGroup{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  .infoBox .buttonGroup p{
+    border: 0;
+    outline: 0;
+    color: rgb(249, 249, 249);
+    padding: 7px 15px;
+    cursor: pointer;
+  }
+  .infoBox .buttonGroup p .pdInfo{
+    color: rgb(247, 247, 247);
+  }
+  .infoBox .buttonGroup .addCart{
+    color: rgb(249, 249, 249);
+  }

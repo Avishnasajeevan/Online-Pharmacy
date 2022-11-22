@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'C:\Django Project\pharmacy\static\css\about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="aboutHeader">
+
+</section>
+
+<section class="aboutUs">
+    <h2>About Us</h2>
+<div class="row">
+    <div class="col">
+    <h3>e-PHARM</h3>
+    <p id="aboutInfo">The Online Pharmacy has a team of knowledgeable and caring pharmacists and pharmacy assistants. Our customer support is 100% based in Australia, so whilst we can't offer 24/7 support, we are contactable 7 days a week and a pharmacist is available for advice throughout the day. We partner with Australia Post for the delivery of orders.</p>
+    <br><br>
+    <p class="SocialCon">Connect us</p>
+    <div class="Con-icons">
+        <a href="#"><i id="facebookIcon" class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-github"></i></a>
+  
+      </div>
+</div>
+    <div class="col">
+        <img src="{% static 'images/phm.jpg' %}"/>
+    </div>
+</div>
+</section>
+
+{% endblock %}

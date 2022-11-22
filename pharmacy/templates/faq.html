@@ -1,0 +1,87 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static '\css\faq.css' %}">
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'C:\Django Project\pharmacy\static\js\faq.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="carousel-item active">
+    <img class="d-block w-100" src="{% static 'images/faq.jpg' %}" alt="First slide">
+  </div>
+<section class="faq-section">
+    <div class="title">FAQ</div>
+
+ <!--qstn ans starts-->   
+    <div class="faq">
+        <div class="qstns">
+            <h4>WHAT IS E-PHARM WEBSITE ?
+            <span class="up-icon">
+                <i id="btnToggle" class="fas fa-chevron-down"></i>
+            </span></h4>
+        </div>
+        <div class="ans" id="ans">
+            <p>e-PHARM is the India's one of the most popular website for pharmacy (medical store) to make online pharmacy within 24hrs. If you have a small pharmacy, EMedStore can help you create an online pharmacy app quickly and inexpensively.</p>
+        </div>
+    </div>
+ <!--qstn ans ends--> 
+
+
+ <!--qstn ans starts-->   
+ <div class="faq">
+    <div class="qstns">
+        <h4>how can I help You?
+        <span class="up-icon">
+            <i id="btnToggle-2" class="fas fa-chevron-down"></i>
+        </span></h4>
+    </div>
+    <div class="ans-2" id="ans">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ipsa odio impedit, deleniti hic amet tempore ipsum quibusdam sint aperiam, excepturi aut pariatur assumenda! Sint quod doloribus vitae repellat fuga?</p>
+    </div>
+</div>
+<!--qstn ans ends--> 
+
+
+<!--qstn ans starts-->   
+<div class="faq">
+    <div class="qstns">
+        <h4>how can I help You?
+        <span class="up-icon">
+            <i id="btnToggle-3" class="fas fa-chevron-down"></i>
+        </span></h4>
+    </div>
+    <div class="ans-3" id="ans">
+        <p></p>
+    </div>
+</div>
+<!--qstn ans ends--> 
+
+
+<!--qstn ans starts-->   
+<div class="faq">
+    <div class="qstns">
+        <h4>how can I help You?
+        <span class="up-icon">
+            <i id="btnToggle-4" class="fas fa-chevron-down"></i>
+        </span></h4>
+    </div>
+    <div class="ans-4" id="ans">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ipsa odio impedit, deleniti hic amet tempore ipsum quibusdam sint aperiam, excepturi aut pariatur assumenda! Sint quod doloribus vitae repellat fuga?</p>
+    </div>
+</div>
+<!--qstn ans ends--> 
+
+
+
+
+</section>
+{% endblock %}
+
+
+
+

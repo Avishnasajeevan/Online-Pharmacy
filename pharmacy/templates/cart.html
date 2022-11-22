@@ -1,0 +1,58 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'C:\Django Project\pharmacy\static\css\products\cart.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+<section>
+<div class="form-container" style="margin-top:8%; margin-left:10%; margin-right: 10%; min-height: 600px;">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">CART ITEMS</h4>
+        <hr style="border-color:black;">
+      </div>
+
+      <table class="table">
+        <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+            <th>Remove</th>
+        </tr>
+
+        {% for item in cart %}
+        <tr>
+            <td><img src="{{item.product.image.url}}" height="75px" alt="{{item.product.pname}}"></td>
+            <td>{{item.product.pname}}</td>
+            <td>{{item.product_qty}}</td>
+            <td>{{item.product.price}}/-</td>
+            <td class="totalAmt"><b>{{item.total_cost}}/-</b></td> <!--amount-->
+            
+            <td><a href="{% url 'remove_cart' item.id %}" onclick="return confirm('Are you sure to Remove this item?')"><p style="font-size:12px; letter-spacing: 2px; background-color: rgb(163, 22, 22); color: white; border-radius: 5%; padding: 5px;"><i class="fa fa-trash">Remove</i></p></a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <!-- <td colspan="1"><b>Total Amount</b></td>  
+            <td id="net" colspan="5"><b></b></td> -->
+            
+        </tr>
+      </table>
+      <button style="background-color: rgb(223, 213, 15); color:black; cursor: pointer; padding-left:40px; padding-top: 3px; padding-bottom: 3px; padding-right: 40px; border: none; border-radius: 5px; margin-left: 75%;">Make Payment</button>
+    </div>
+</div>
+</section>
+{% endblock %}
+
+
+
+

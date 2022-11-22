@@ -1,0 +1,100 @@
+ /* .product-btn{
+    margin-top: 22px;
+}
+.product-btn .addto-cart-btn{
+    display: inline-block;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 11px 14px;
+    color: white;
+    background-image: linear-gradient(45deg,rgb(17, 111, 123),rgb(12, 85, 146));
+    cursor: pointer;
+    border: none;
+    margin-right: 8px;
+}
+ .buy-btn{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-right: 8px;
+    display: inline-block;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 11px 25px;
+}  */
+.productBody{
+ margin-top: 8%;
+  
+}
+#prod-details{
+    position: relative;
+}
+#prod-details .price span{
+    font-size: 19px;
+    text-decoration: line-through;
+    color:rgb(201, 12, 12);
+}
+
+#prod-details .offer{
+    font-size: 19px;
+}
+#prod-details .offer span{
+    color:rgb(201, 12, 12);
+}
+#prod-details .brand{
+    font-size: 17px;
+    font-weight: 499;
+}
+#prod-details .brand span{
+    color: rgb(36, 150, 36);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+
+@media screen and (max-width: 1100px){
+    .productBody h4{
+        margin-top: 6%;
+    }
+}
+@media screen and (max-width: 990px){
+    .productBody h4{
+        margin-top: 7%;
+    }
+}
+@media screen and (max-width: 810px){
+    .productBody h4{
+        margin-top: 8%;
+    }
+}
+@media screen and (max-width: 750px){
+    .productBody h4{
+        margin-top: 10%;
+    }
+}
+@media screen and (max-width: 650px){
+    .productBody h4{
+        margin-top: 12%;
+    }
+}
+@media screen and (max-width: 550px){
+    .productBody h4{
+        margin-top: 15%;
+    }
+}
+@media screen and (max-width: 450px){
+    .productBody h4{
+        margin-top: 17%;
+    }
+}
+@media screen and (max-width: 360px){
+    .productBody h4{
+        margin-top: 19%;
+    }
+    .product-btn p{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+   
+}

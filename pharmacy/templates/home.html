@@ -1,0 +1,129 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css\home.css' %}">
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'C:\Django Project\pharmacy\static\js\home.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+<!--header section-->
+<section class="mainHead" style="padding-bottom: 600px; background-image:linear-gradient(45deg,rgb(23, 119, 178),rgb(24, 151, 123));">
+
+</section>
+<!--header section contents-->
+<div class="container">
+  <h1 class="headLine">Buy Medicines Online<br>at Affordable Price<br>
+    <span>Cash on Delivery Home Delivery</span><br>
+    </h1>
+    {% if request.user.is_authenticated %}
+    <a href="/"><button id="orderNow" type="button" value="submit">Order Now</button></a>
+    {% else %}
+    <a href="login"><button type="button" value="submit">Order Now</button></a>
+    {% endif %}
+</div>
+
+<!--ctegory list view for cus-->
+<div class="catBody">
+  <h3>Shop by Category</h3>
+
+
+<section class="categoryListModel">
+  
+{% for c in category %}
+<div class="row">
+   <div class="col">
+    {% if request.user.is_authenticated %}
+     <!-- a tag for url setting for render pages as per categories-- IMPORTANT -->
+     <a href="/{{c.name}}/"><img src="{{c.image.url}}"/></a> 
+     {% else %}
+     <a href="login"><img src="{{c.image.url}}"/></a> 
+    {% endif %}
+     <h5>{{c.name}}</h5>
+  </div>
+ </div> 
+{% endfor %}
+</section>
+
+</div>
+
+
+<!--service-->
+<section>
+  <div class="wrapper">
+    <h2>Our Services</h2>
+    <div class="content-box">
+
+      <div class="card">
+        <i class="fa fa-truck"></i>
+        <h5>Free delivery</h5>
+      <p>Door To Door free & fastest delivery Service to our valued clients.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa fa-money-check"></i>
+<h5>Secure Payment</h5>
+<p>we ensure that online payment transactions are delivered safely & cash on delivery also available. </p>
+      </div>
+
+
+      <div class="card">
+        <i class="fa fa-phone"></i>
+      <h5>24 x 7 Support</h5>
+      <p>we provide 24 x 7 customer support via email or phone for product related queries</p>
+      </div>
+
+      <div class="card">
+        <i class="fa fa-arrow-up-right-from-square"></i>
+      <h5>Top Quality</h5>
+      <p>We always improve the quality of products and systems we provide to society</p>
+      </div>
+
+      <div class="card">
+        <i class="fa fa-basket-shopping"></i>
+     <h5>Unlimited Purchase</h5>
+    <p>We provide truly unlimited products purchases at a time without delivery charge</p>
+      </div>
+
+      <div class="card">
+        <i class="fa fa-sack-dollar"></i>
+        <h5>Affordable Price</h5>
+       <p>Our services are competitively priced is because we choose to be affordable.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--offers-->
+<section id="dis-offer">
+<img class="offerimg" src="{% static 'images/online.png' %}" style="height:150; width: 210;">
+<h3 class="offerhead">Buy Online Save your time & Money</h3>
+<button class="offerbut"><center>Purchase now</center></button>
+</section>
+
+
+<!--brands carousel slide-->
+<section class="brand-carousel">
+  <h3>Top Brands</h3>
+<div class="slider">
+  <div class="slide-track">
+
+{% for b in brd %}
+    <div class="brand-slide">
+      <img src="{{b.bimage.url}}" style="height:100; width: 250;">
+    </div>
+{% endfor %}
+
+  </div>
+</div>
+</section>
+{% endblock %}
+    
+
+
+

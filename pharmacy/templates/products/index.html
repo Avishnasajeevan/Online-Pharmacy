@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css\products\style.css' %}">
+{% endblock %}
+
+
+<!--body content-->
+{% block content %}
+
+<!--product categories -->
+
+<section class="productPageHeader">
+   
+</section>
+
+<section class="productHead">
+ <!--to display as per categories-->
+    <h2>{{category_name}}</h2>
+</section>
+
+<section class="pd-list">
+    <!--top line-->
+  </section>
+
+<section class="noteUser">
+    <h4>! Note</h4>
+   <p><span>Make sure that the Medicines and all Medicinal products are prescriped by consultant physician.</span><br>
+    Taking your medicine as prescribed or medication adherence is important for controlling
+     chronic conditions, treating temporary conditions, and overall long-term health and well-being.<br>
+    <strong style="color: rgb(36, 167, 156);">Stay healthy</strong>❤️‍🩹</p>
+  </section>
+  
+<!--categories starts-->
+<div class="container">
+   
+    {% for p in products %}
+     <!--card start-->
+     <div class="card">
+      <div class="imgcontainer">
+        <img src="{{p.image.url}}"alt=""/>
+      </div>
+      <div class="infoBox">
+    
+        <div class="title">{{p.pname}}</div> 
+        <div class="price">Rs.{{p.price}}/-</div>
+        <div class="offer">Rs.{{p.offer}}/-</div>
+        <div class="buttonGroup">
+          
+          <a href="{% url 'productinfo' category_name p.pname %}"><p style="color:white; padding: 7px 15px; cursor: pointer; background-image:linear-gradient(45deg,rgb(23, 119, 178),rgb(24, 151, 123)); " class="pdInfo">More info</p></a>
+          {% if p.quantity > 0 %}
+          <a href="#"><p style="color:white; background-image:linear-gradient(45deg,rgb(23, 119, 178),rgb(24, 151, 123)); padding: 7px 15px; cursor: pointer; " class="addCart">Add to cart</p></a>
+          {% else %}
+          <a href="#"><p style="color:white; padding: 7px 13px; cursor: pointer; background-color: rgb(127, 127, 127); " class="outstock">Out of Stock</p></a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+      
+    {% endfor %}
+    </div> 
+<!--categories ends---->
+ 
+{% endblock %}

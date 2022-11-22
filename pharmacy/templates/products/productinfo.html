@@ -1,0 +1,139 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css\productinfo.css' %}">
+{% endblock %}
+
+
+{% block script %}
+<!-- <script src="{% static 'C:\Django Project\pharmacy\static\js\productinfo.js' %}"></script> -->
+{% endblock %}
+
+
+{% block content %}
+<section class="productBody">
+    <div class="container" id="product_data">
+        <div class="row">
+            <div class="col-12">
+                <h4>{{products.pname}} details</h4>
+                <hr style="border-color:grey;">
+                
+                <div aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                      <li class="breadcrumb-item"><a href="{% url 'homecat' products.category.name %}">{{category_name}}</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">{{products.pname}}</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="col-5 my-5">
+            <img src="{{products.image.url}}"alt="{{products.pname}}" width="100%" style="border: 1px dotted black;"/>
+        </div>
+
+        <div class="col-7 my-3" id="prod-details">
+            <h5 class="text-success">{{products.pname}}</h5>
+            <h6 class="brand">Product Brand: <span> {{products.brand}}</span></h6>
+            <h6 class="price">Price: Rs.<span>{{products.price}}.0/-</span></h6>
+            <h5 class="offer">Offer Price: Rs.<span>{{products.offer}}.0/-</span></h5>
+            <p>{{products.description}}</p>
+
+         <!--conditon for quantity-->   
+          <div class="my-3">
+             {% if products.quantity > 0 %}
+            
+             <input type="hidden" value="{{products.id}}" id="pid">
+             
+             <p>
+                <div class="input-group" style="width: 127px; height: 20px;">
+                <button id="minusBtn" class="input-group-text bg-success text-light"><i class="fa fa-minus"></i></button>
+                <input id="qty" type="text" class="form-control text-center" value="1" name="qty">
+                <button id="plusBtn" class="input-group-text bg-success text-light"><i class="fa fa-plus"></i></button>
+            </p>
+            <button id="btnCart" class="btn btn-primary" style="margin-top:4%; padding-left: 5%;"><i style="padding-right: 5%;" class="fa fa-shopping-cart"></i>Add to Cart</button>
+            {% else %}
+            <button class="btn btn-secondary" style="margin-top:4%; "><i style="padding-right: 5%;" class="fa fa-minus"></i>Out of Stock</button>
+            {% endif %}
+
+        </div>
+
+        </div>
+        </div>
+    </div>
+</section>
+<script>
+
+/**for quantity increment decrement**/
+document.addEventListener("DOMContentLoaded", function(event){
+    const minusBtn = document.getElementById("minusBtn");
+    const plusBtn = document.getElementById("plusBtn");
+    const qty = document.getElementById("qty");
+    const pid = document.getElementById("pid");
+   
+    const btnCart = document.getElementById("btnCart");
+
+    plusBtn.addEventListener("click", function(){
+        // alert("hello");
+        let q=parseInt(qty.value,10);
+        q=isNaN(q)?0:q;
+        if(q<10){
+            q++;
+            qty.value=q;
+            
+        }
+    });
+
+    minusBtn.addEventListener("click", function(){
+        // alert("hello");
+        let q=parseInt(qty.value,10);
+        q=isNaN(q)?0:q;
+        if(q>1){
+            q--;
+            qty.value=q;
+            
+        }
+    });
+
+/**for quantity increment decrement end**/
+
+/**addtocart**/
+    btnCart.addEventListener("click", function(){
+        
+        let q=parseInt(qty.value,10);
+        q=isNaN(q)?0:q;
+        if(q>0){
+            
+            let postObj = {
+                product_qty: q,
+                pid: pid.value,
+                
+            }
+            // console.log(postObj);
+            fetch("/addtocart",{
+                method: 'POST',
+                credentials: 'same-origin',
+                headers:{
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify(postObj)
+            }).then(Response => {
+                return Response.json();
+            }).then(data => {
+                // console.log(data);
+                alert(data['status']);
+               
+            });
+        }else{
+            alert("enter qty");
+        }
+    });
+/**addtocart end**/
+   
+});
+</script>
+{% endblock %}
+
+
